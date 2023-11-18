@@ -1,5 +1,7 @@
+"use client";
 import { ReactNode } from "react";
 import Navbar from "./Navbar";
+import { SessionProvider } from "next-auth/react";
 
 interface LayoutProps {
   children: ReactNode;
@@ -7,9 +9,9 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="inner">
+    <SessionProvider>
       <Navbar />
       {children}
-    </div>
+    </SessionProvider>
   );
 }
